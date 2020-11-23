@@ -206,15 +206,7 @@ class GenerateWebMapWithWmts:
             # Do something useful here - delete the line containing pass and
             # substitute with your code.
             self.dlg.leUser
-            # Supply path to qgis install location
-            # print(QgsApplication.setPrefixPath("/usr/share/qgis", True))
-
-            # Create a reference to the QgsApplication.  Setting the
-            # second argument to False disables the GUI.
-            # qgs = QgsApplication([], False)
-
-            # Load providers
-            # print(qgs.initQgis())
+        
             project = QgsProject.instance()
 
             current_utc = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
@@ -222,9 +214,6 @@ class GenerateWebMapWithWmts:
             # set web map title 
             wmtitle = self.dlg.webmapname.text()
             snippet = self.dlg.snippet.text()
-
-            # add your planet api key
-            # api_key='38ee2c91652d4be796448e6e9d34d3ac'
 
             #connect to a portal
             print('Connecting....')
@@ -251,7 +240,7 @@ class GenerateWebMapWithWmts:
             # are not Planet tiled sourced WMTS layers they will passed over
             def createOpLayer():
                 global extentlower, extentmax
-                # project.read('/home/r3weber/Documents/test_wmts.qgz')
+                
                 layers = QgsProject.instance().mapLayers().values()
                 for l in layers:
                     split = l.source().split('url')
