@@ -327,9 +327,9 @@ class GenerateWebMapWithWmts:
                 newmap = gis.content.add(item_properties = item_properties_dict)
                 print(f'created new web map: {newmap}')
                 wm = WebMap(newmap)
-                featurecollection = gis.content.get('7247da2fdda949d9bc77d97cfd532af4')
-                permits = featurecollection.layers[10]
-                print(f'''Added OSMRE Permit Boundary Layer: {wm.add_layer(permits)}''')
+                # featurecollection = gis.content.get('')
+                # permits = featurecollection.layers[10]
+                # print(f'''Added OSMRE Permit Boundary Layer: {wm.add_layer(permits)}''')
                 wm.update()
                 # Update the extent
                 item = gis.content.get(newmap.id)
